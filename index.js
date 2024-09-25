@@ -86,3 +86,57 @@ for (var i = 0; i < numbersArray.length; i++) {
         primeNumbers.push(numbersArray[i]);
 }
 console.log("Prime Numbers: ", primeNumbers);
+//Find   occurring of numbers in the array
+var numbersArray2 = [1, 2, 3, 4, 5, 4, 3, 2, 1, 5];
+var numberCount = {};
+for (var i = 0; i < numbersArray2.length; i++) {
+    if (numberCount[numbersArray2[i]])
+        numberCount[numbersArray2[i]]++;
+    else
+        numberCount[numbersArray2[i]] = 1;
+}
+console.log("Occurrences of numbers: ", numberCount);
+var person = {
+    name: "John Doe",
+    age: 25
+};
+if (person.age > 18) {
+    console.log("Adult");
+}
+else {
+    console.log("Minor");
+}
+var teacher = {
+    name: "Duha",
+    subjects: ["Math", "Science", "English"]
+};
+for (var _i = 0, _a = teacher.subjects; _i < _a.length; _i++) {
+    var subject = _a[_i];
+    console.log(subject);
+}
+var product = [
+    { name: "Apple", price: 10, quantity: 10 },
+    { name: "Banana", price: 5, quantity: 8 },
+    { name: "Orange", price: 15, quantity: 3 }
+];
+for (var i = 0; i < product.length; i++) {
+    if (product[i].quantity > 5) {
+        product[i].price *= 1.1;
+    }
+}
+console.log(product);
+var MyDevice = /** @class */ (function () {
+    function MyDevice() {
+    }
+    MyDevice.prototype.start = function () {
+        console.log("Device starting with default settings.");
+    };
+    return MyDevice;
+}());
+var device = new MyDevice();
+if (device.start) {
+    device.start();
+}
+else {
+    console.log("Device starting with default settings.");
+}

@@ -134,3 +134,102 @@ for(let i=0; i<numbersArray.length; i++)
 }
 
 console.log("Prime Numbers: ", primeNumbers);
+
+//Find   occurring of numbers in the array
+
+let numbersArray2: number[] = [1, 2, 3, 4, 5, 4, 3, 2, 1, 5];
+let numberCount: any = {};
+
+for(let i=0; i<numbersArray2.length; i++)
+{
+    if(numberCount[numbersArray2[i]])
+        numberCount[numbersArray2[i]]++;
+    else
+        numberCount[numbersArray2[i]] = 1;
+}
+
+console.log("Occurrences of numbers: ", numberCount);
+
+
+/*********************** Day3**************************************************** */
+// Task 1: Verify Interface Properties
+// You are given an object that follows an interface Person with properties name and age. Check if the age is above 18 and print "Adult" if true, otherwise print "Minor."
+
+ interface Person {
+    name: string;
+    age: number;
+}
+
+let person: Person = {
+    name: "John Doe",
+    age: 25
+};
+
+if (person.age > 18) {
+    console.log("Adult");
+} else {
+    console.log("Minor");
+}
+
+// Task 2: Iterate Through an Array in an Interface
+// You are given an object that follows an interface Teacher with properties name and subjects (an array of subjects). Print all the subjects the teacher teaches.
+
+interface Teacher {
+    name: string;
+    subjects: string[];
+}
+
+let teacher: Teacher = {
+    name: "Duha",
+    subjects: ["Math", "Science", "English"]
+};
+
+for (let subject of teacher.subjects) {
+    console.log(subject);
+}
+
+
+// Task 3: Modify Object in an Array of Interfaces
+// You are given an array of Product interfaces, where each product has a name, price, and quantity. Write a script to increase the price of each product by 10% if the quantity is greater than 5.
+
+ interface Product {
+    name: string;
+    price: number;
+    quantity: number;
+}
+
+let product: Product[] = [
+    { name: "Apple", price: 10, quantity: 10 },
+    { name: "Banana", price: 5, quantity: 8 },
+    { name: "Orange", price: 15, quantity: 3 }];
+
+ for (let i = 0; i < product.length; i++) {
+    if (product[i].quantity > 5) {
+        product[i].price *= 1.1;
+    }
+}
+
+console.log(product);
+
+
+// Task 4 : Validate Optional Function in Interface with Default Behavior
+// You have an interface Device with an optional method start(). If the device has a start method, it should be called, otherwise, log "Device starting with default settings."
+
+interface Device {
+    start?(): void;
+}
+
+class MyDevice implements Device {
+    start?(): void {
+        console.log("Device starting with default settings.");
+    }
+}
+
+let device: Device = new MyDevice();
+
+if (device.start) {
+    device.start();
+} else {
+    console.log("Device starting with default settings.");
+
+}
